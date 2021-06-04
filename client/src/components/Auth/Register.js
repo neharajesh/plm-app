@@ -15,11 +15,21 @@ export const Register = () => {
     return (<>
         <div className="pageContainer">
             <h1> Register Page </h1>
-            <label>Username <input type="text" onChange={(e) => setUsername(e.target.value)} /> </label>
-            <label>Password <input type="password" onChange={(e) => setPassword(e.target.value)} /> </label>
-            <label>ReType Password <input type="password" onChange={(e) => setRetypePassword(e.target.value)} /> </label>
-            <button onClick={submitButtonHandler} disabled={!(password === retypePassword)}> Submit </button>
-            <p>username : {username}</p>
+            <div className="authContainer pd-1 mg-tb-2">
+                <div className="inputContainer"> 
+                    <span> Username </span> 
+                    <input className="authInput" type="text" onChange={(e) => setUsername(e.target.value)} /> 
+                </div>
+                <div className="inputContainer"> 
+                    <span> Password </span> 
+                    <input className="authInput" type="password" onChange={(e) => setPassword(e.target.value)} /> 
+                </div>
+                <div className="inputContainer"> 
+                    <span> ReType Password </span> 
+                    <input className="authInput" type="password" onChange={(e) => setRetypePassword(e.target.value)} /> 
+                </div>
+                <button className="submitButton" onClick={submitButtonHandler} disabled={!(password === retypePassword)}> Submit </button>
+            </div>
             <p>password : {password===retypePassword ? "maaaatches" : "no match :c"}</p>
             {message}
         </div>
