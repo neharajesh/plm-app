@@ -1,19 +1,15 @@
-import { Route, Routes } from "react-router";
-import { Link } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import { Login } from "./components/Auth/Login";
 import { Register } from "./components/Auth/Register";
+import { Layout } from "./components/Layout/Layout";
+import { Home } from "./components/Pages/Home";
 
 const App = () => {
 	return (<>
-		<nav>
-			<Link to="/signin">Login</Link>
-			<Link to="/signup">Register</Link>
-		</nav>
-
-		<h1> Main App Page </h1>
 		<Routes>
-			<Route path="/signin" element={<Login />} />
-			<Route path="/signup" element={<Register />} />
+			<Route path="/signin"><Layout> <Login /> </Layout></Route>
+			<Route path="/signup"><Layout> <Register /> </Layout></Route>
+            <Route path="/"><Layout> <Home /> </Layout></Route>
 		</Routes>
 	</>);
 }

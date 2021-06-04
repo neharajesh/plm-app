@@ -1,0 +1,75 @@
+@import url("https://purplecss.netlify.app/styles.css");
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;700&display=swap');
+
+/* :root {
+    colors 
+} */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scrollbar-width: none;
+}
+
+::-webkit-scrollbar {
+    width: 0;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    overflow: hidden;
+}
+
+.pageLayout {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+}
+
+.sidebarContainer {
+    height: 100vh;
+    width: 30vh;
+    background-color: #f4f1de;
+    padding: 1rem;
+}
+
+.pageContainer {
+    padding: 1rem;
+    width: 100%;
+    height: 100vh;
+}
+
+.navLink {
+    color: black;
+    text-decoration: none;    
+    display: flex;
+    justify-content: center;
+}
+
+.navLink:hover {
+    background-color: pink;
+    background-image: linear-gradient(
+        45deg,
+        #CA4246 16.666%, 
+        #E16541 16.666%, 
+        #E16541 33.333%, 
+        #F18F43 33.333%, 
+        #F18F43 50%, 
+        #8B9862 50%, 
+        #8B9862 66.666%, 
+        #476098 66.666%, 
+        #476098 83.333%, 
+        #A7489B 83.333%);
+    background-size: 100%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-text-fill-color: transparent;
+}
+
+.navLink span {
+    font-size: 1.2em;
+    text-decoration: none;
+}
