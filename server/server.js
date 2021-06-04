@@ -15,6 +15,8 @@ const authRouter = require("./routers/auth-router")
 const userRouter = require("./routers/user-router")
 const { verifyToken } = require("./middlewares/verify-signin")
 
+const todoRouter = require("./routers/todo-router")
+
 app.all('/*', function(req, res, next) {
     res.header("Access-Control-Allow-Origin", 'POST, OPTIONS',  "*");
     res.header("Access-Control-Allow-Headers", "X-Requested-With");
@@ -23,6 +25,7 @@ app.all('/*', function(req, res, next) {
 
 app.use("/auth", authRouter)
 app.use("/user", userRouter)
+app.use("/todo", todoRouter)
 
 app.get("/protectedRoute", verifyToken, (req, res) => {
     try {

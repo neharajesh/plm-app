@@ -16,6 +16,9 @@
     width: 0;
 }
 
+/* Utilities */
+.txt-strike { text-decoration: line-through; }
+
 body {
     font-family: 'Montserrat', sans-serif;
     overflow: hidden;
@@ -72,4 +75,21 @@ body {
 .navLink span {
     font-size: 1.2em;
     text-decoration: none;
+}
+
+/* TODO */
+.todoInput {
+    width: 50rem;
+    padding: 1rem 1.5rem;
+    border: none;
+    border-bottom: 0.05px solid rgb(65, 64, 64);
+}
+
+.todoInput:focus {
+    border-bottom: 2px solid rgb(228, 135, 135);
+}
+
+.todoButton {
+    padding: 0.5rem;
+    margin: 1rem;
 }

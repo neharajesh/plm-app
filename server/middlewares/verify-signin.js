@@ -13,6 +13,7 @@ const verifyToken = (req, res, next) => {
         if(!decoded) {
             throw new Error()
         }
+        
         next()
     } catch (err) {
         res.status(400).json({success: false, message: "error occured while verifying token"})

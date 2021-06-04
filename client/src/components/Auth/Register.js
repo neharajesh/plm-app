@@ -8,7 +8,7 @@ export const Register = () => {
     const [message, setMessage] = useState("")
 
     const submitButtonHandler = () => {
-        const {success, message} = registerRequest(username, password);
+        const { message } = registerRequest(username, password);
         setMessage(message)
     }
 
