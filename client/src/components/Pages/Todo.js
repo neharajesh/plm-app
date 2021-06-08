@@ -1,42 +1,19 @@
 import "../../styles.css"
-import { useState } from "react"
-import { updateTodoList } from "../Utilities/todo-utilities"
-import { useTodo } from "../../context/TodoContext";
+import { Link } from "react-router-dom"
+import { todoLists } from "../../data/todoListData"
 
 export const Todo = () => {
-    const [newTask, setNewTask] = useState("");
-    const { todoList, setTodoList } = useTodo();
-
-    const addNewTask = () => {
-        let newTodoItem = {
-            task: newTask,
-            isDone: false
-        }
-        console.log(newTodoItem)
-        setTodoList(todoList => [...todoList, newTodoItem])
-    }
-
-    const updateTask = (task) => {
-        let updatedTodoList = todoList.map(todo => {
-            if(todo.task === task)
-                todo.isDone = !todo.isDone
-            return todo
-        })
-        setTodoList(updatedTodoList)
-    }
-
     return (<>
-        <div>
-            <h1> Todo </h1>
-            <input type="text" placeholder="Add a Task" className="todoInput" onChange={(e) => setNewTask(e.target.value)} />
-            <button className="todoButton" onClick={() => addNewTask()}> Add </button>
-
-            {todoList.map(todo => (
-                <div>
-                    <label>
-                        <span className={todo.isDone ? "txt-strike" : ""}> {todo.task} </span>
-                        <button onClick={() => updateTask(todo.task)}> Mark as Done </button>
-                    </label>
+    <h1> Todo List </h1>
+    <button className="pd-05 mg-tb-2 fill-secondary-red bdr-none bdr-rad-m"> Create new Todo </button>
+        <h2> Your Todo Lists </h2>
+        <div className="flex flex-wrap" > 
+            {todoLists.map(todoList => (
+                <div className="pd-1 mg-1 bdr-thin bdr-rad-m bdr-grey card-vert">
+                    <p> {todoList.todoListName} </p>
+                    <p> {todoList.tasks.length} tasks </p>
+                    <br />
+                    <Link className="txt-grey" to={`/todo/${todoList.id}`}> Click to View </Link>
                 </div>
             ))}
         </div>

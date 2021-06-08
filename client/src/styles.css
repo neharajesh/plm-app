@@ -1,10 +1,6 @@
 @import url("https://purplecss.netlify.app/styles.css");
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;700&display=swap');
 
-/* :root {
-    colors 
-} */
-
 * {
     margin: 0;
     padding: 0;
@@ -18,10 +14,17 @@
 
 /* Utilities */
 .txt-strike { text-decoration: line-through; }
+.txt-grey { color: grey; }
+.bdr-grey { border-color: grey; }
 
 body {
     font-family: 'Montserrat', sans-serif;
     overflow: hidden;
+}
+
+.darkTheme { 
+    background-color: #212121;
+    color: white;
 }
 
 .pageLayout {
@@ -35,6 +38,7 @@ body {
     width: 23vw;
     background-color: #f4f1de;
     padding: 1rem;
+    position: relative;
 }
 
 .pageContainer {
@@ -108,9 +112,16 @@ body {
     text-decoration: none;
 }
 
+.fixedThemeButton {
+    position: absolute;
+    bottom: 10;
+    left: 10;
+    padding: 0.5rem;
+}
+
 /* TODO */
 .todoInput {
-    width: 40rem;
+    width: 30rem;
     padding: 1rem 1.5rem;
     border: none;
     border-bottom: 0.05px solid rgb(65, 64, 64);
@@ -118,9 +129,4 @@ body {
 
 .todoInput:focus {
     border-bottom: 2px solid rgb(228, 135, 135);
-}
-
-.todoButton {
-    padding: 0.5rem;
-    margin: 1rem;
 }

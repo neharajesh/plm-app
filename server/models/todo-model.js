@@ -3,14 +3,19 @@ const { User } = require("./user-model")
 const { Schema } = mongoose
 
 const TodoSchema = new Schema({
-    task: {
-        type: String,
-        required: [true, "Task cannot be empty"]
-    },
-    isDone: {
-        type: Boolean,
-        required: true
-    },
+    todoListName: {
+        type: String
+    }, 
+    tasks: [{
+        task: {
+            type: String,
+            required: [true, "Task is required"]
+        }, 
+        isDone: {
+            type: Boolean,
+            required: true
+        }
+    }],
     userId: {
         type: Schema.Types.ObjectId,
         ref: User
