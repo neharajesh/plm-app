@@ -7,8 +7,8 @@ export const Register = () => {
     const [retypePassword, setRetypePassword] = useState("")
     const [message, setMessage] = useState("")
 
-    const submitButtonHandler = () => {
-        const { message } = registerRequest(username, password);
+    const submitButtonHandler = async () => {
+        const { message } = await registerRequest(username, password);
         setMessage(message)
     }
 

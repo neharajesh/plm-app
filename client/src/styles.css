@@ -16,6 +16,9 @@
 .txt-strike { text-decoration: line-through; }
 .txt-grey { color: grey; }
 .bdr-grey { border-color: grey; }
+button {
+    cursor: pointer;
+}
 
 body {
     font-family: 'Montserrat', sans-serif;
@@ -125,6 +128,7 @@ body {
     padding: 1rem 1.5rem;
     border: none;
     border-bottom: 0.05px solid rgb(65, 64, 64);
+    background-color: transparent;
 }
 
 .todoInput:focus {

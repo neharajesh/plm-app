@@ -6,8 +6,8 @@ export const Login = () => {
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
 
-    const submitButtonHandler = () => {
-        loginRequest(username, password);
+    const submitButtonHandler = async () => {
+        await loginRequest(username, password);
     }    
     
     return(<>
