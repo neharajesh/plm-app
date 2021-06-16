@@ -7,6 +7,7 @@ const {extend} = lodash
 const { Todo } = require("../models/todo-model")
 
 router.route("/")
+//view all todos
 .get(async(req, res) => {
     try {
         const todos = await Todo.find({})
@@ -15,6 +16,7 @@ router.route("/")
         res.json({success: false, message: "Todos could not be retrieved", errMessage: err.message})
     }
 })
+//add new todo
 .post(async(req, res) => {
     try {
         const user = req.user
@@ -43,10 +45,12 @@ router.param("todoId", async(req, res, next, todoId) => {
 })
 
 router.route("/:todoId")
+//view particular todo
 .get((req, res) => {
     let { todo } = req
     res.json({success: true, message: "Todo details fetched successfully", sentData: todo})
 })
+//update particular todo
 .post(async(req, res) => {
     try {
         let { todo } = req
@@ -59,6 +63,7 @@ router.route("/:todoId")
         res.json({success: false, message: "Error updating todo details", errMessage: err.message})
     }
 })
+//delete particular todo
 .delete(async(req, res) => {
     try {
         let { todo } = req
@@ -67,6 +72,21 @@ router.route("/:todoId")
     } catch (err) {
         console.log("Error occurred while deleteing todo")
         res.json({success: false, message: "Todo could not be deleted", errMessage: err.message})
+    }
+})
+
+//get all todos with userId
+router.route("/:userId")
+.get(async(req, res) => {
+    try {
+        const todos = await Todo.find({userId: req.params.userId})
+        if(!todos) {
+            return res.json({success: false, message: "No todos found"})
+        }
+        return res.json({success: true, message: "Todos found", data: todos})
+    } catch (err) {
+        console.log("Error fetching todos")
+        res.json({success: false, message: "Couldn't fetch todos", errMessage: err.message})
     }
 })
 

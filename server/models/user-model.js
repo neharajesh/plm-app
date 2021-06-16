@@ -1,5 +1,4 @@
 const mongoose = require("mongoose")
-const { Todo } = require("./todo-model")
 const { Schema } = mongoose
 
 const UserSchema = new Schema({
@@ -10,11 +9,7 @@ const UserSchema = new Schema({
     password: {
         type: String,
         required: [true, "Password is required"]
-    },
-    todoLists: [{
-        type: Schema.Types.ObjectId,
-        ref: Todo
-    }]
+    }
 }, {
     timestamps: true
 })
