@@ -76,7 +76,7 @@ router.route("/:todoId")
 })
 
 //get all todos with userId
-router.route("/:userId")
+router.route("/user/:userId")
 .get(async(req, res) => {
     try {
         const todos = await Todo.find({userId: req.params.userId})
