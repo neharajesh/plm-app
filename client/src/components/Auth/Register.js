@@ -1,5 +1,6 @@
 import { useState } from "react"
 import { registerRequest } from "../../api/AuthAPI"
+import { showNotification } from "../Utilities/toast"
 
 export const Register = () => {
     const [username, setUsername] = useState("")
@@ -9,7 +10,7 @@ export const Register = () => {
 
     const submitButtonHandler = async () => {
         const { message } = await registerRequest(username, password);
-        setMessage(message)
+        showNotification(message)
     }
 
     return (<>
@@ -32,6 +33,7 @@ export const Register = () => {
             </div>
             <p>password : {password===retypePassword ? "maaaatches" : "no match :c"}</p>
             {message}
+            <div id="notification-container"></div>
         </div>
     </>)
 }

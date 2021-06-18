@@ -11,10 +11,9 @@ export const TodoProvider = ({children}) => {
 
     useEffect(async() => {
         const response = await axios.get(`${ROOT_URL}/todo`)
-        localStorage.setItem("todoLists", response.data?.receivedData)
-        setTodoList(response.data?.receivedData)
-        },
-    [])
+        localStorage.setItem("todoLists", response.data.receivedData)
+        setTodoList(response.data.receivedData)
+        }, [setTodoList])
 
     return(<>
         <TodoContext.Provider value={{ todoList, setTodoList }}>

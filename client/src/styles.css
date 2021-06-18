@@ -129,6 +129,7 @@ body {
     border: none;
     border-bottom: 0.05px solid rgb(65, 64, 64);
     background-color: transparent;
+    color: inherit;
 }
 
 .todoInput:focus {

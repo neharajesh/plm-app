@@ -1,14 +1,23 @@
 import "./auth.css"
 import { useState } from "react";
 import { loginRequest } from "../../api/AuthAPI"
+import { showNotification } from "../Utilities/toast"
+import { useAuth } from "../../context/AuthContext";
+import { Link } from "react-router-dom";
 
 export const Login = () => {
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
+    const { setUser, setToken } = useAuth()
 
     const submitButtonHandler = async () => {
-        await loginRequest(username, password);
-    }    
+        const { message, user, authToken } = await loginRequest(username, password);
+        localStorage.setItem("user", JSON.stringify(user))
+        localStorage.setItem("token", JSON.stringify(authToken))
+        setUser(user)
+        setToken(authToken)
+        showNotification(message)
+    }
     
     return(<>
         <div className="pageContainer">
@@ -24,6 +33,8 @@ export const Login = () => {
                 </div>
                 <button className="submitButton" onClick={submitButtonHandler}> Submit </button>
             </div>
+            <Link className="navLink" to="/signup"> <span> Click here to Register </span> </Link>
+            <div id="notification-container"></div>
         </div>
     </>)
 }
