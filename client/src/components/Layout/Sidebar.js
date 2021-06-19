@@ -1,15 +1,11 @@
 import "../../styles.css"
 import { Link } from "react-router-dom"
-import { useTheme } from "../../context/ThemeContext"
 import { useAuth } from "../../context/AuthContext";
 import { showNotification } from "../Utilities/toast";
+import { Theme } from "../Utilities/Theme";
 
 export const Sidebar = () => {
-    const { theme, setTheme } = useTheme();
-    const { token } = useAuth();
-    const changeTheme = () => {
-        theme === "dark" ? setTheme("") : setTheme("dark")
-    }
+    const { token } = useAuth();    
 
     const logoutHandler = () => {
         showNotification("Logging]]' Out")
@@ -28,7 +24,9 @@ export const Sidebar = () => {
                 ? <Link className="navLink" to="/signin"> <span> Login </span> </Link>  
                 : <div className="txt-l csr-point navLink" onClick={() => logoutHandler()}> Logout </div> }
             </div>
-            <button onClick={() => changeTheme()} className="fixedThemeButton"> Change Theme </button>
+
+            <Theme />
+
             <div id="notification-container"></div>
         </div>
     </>)
