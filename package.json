@@ -1,0 +1,21 @@
+{
+  "name": "plm-petcare",
+  "version": "1.0.0",
+  "description": "Personal Learning Management Application",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server/server.js",
+    "server": "nodemon server/server.js",
+    "client": "npm start --prefix client"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/neharajesh/plm-app.git"
+  },
+  "author": "Neha Rajesh",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/neharajesh/plm-app/issues"
+  },
+  "homepage": "https://github.com/neharajesh/plm-app#readme"
+}
