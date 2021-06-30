@@ -16,7 +16,7 @@ export const loginRequest = async(username, password) => {
                   Accept: "application/json",
                   "Content-Type": "application/json",
             }})
-        console.log(response.data.message)
+        console.log(response.data)
         return response.data
     } catch (err) {
         console.log("Error occurred while sending login request", err.message)

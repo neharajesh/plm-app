@@ -6,7 +6,6 @@ export const Register = () => {
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
     const [retypePassword, setRetypePassword] = useState("")
-    const [message, setMessage] = useState("")
 
     const submitButtonHandler = async () => {
         const { message } = await registerRequest(username, password);
@@ -32,7 +31,6 @@ export const Register = () => {
                 <button className="submitButton" onClick={submitButtonHandler} disabled={!(password === retypePassword)}> Submit </button>
             </div>
             <p>password : {password===retypePassword ? "maaaatches" : "no match :c"}</p>
-            {message}
             <div id="notification-container"></div>
         </div>
     </>)

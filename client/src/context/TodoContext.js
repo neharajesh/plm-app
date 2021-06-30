@@ -1,19 +1,23 @@
 import { createContext, useContext, useEffect, useState } from "react";
-import axios from "axios";
-import ROOT_URL from "../config";
+import { fetchAllTodoLists } from "../api/TodoApi";
 
-const initialTodoList = localStorage.getItem("todoLists") || [];
+const initialTodoList = JSON.parse(localStorage.getItem("cart")) || [];
 
 const TodoContext = createContext()
 
 export const TodoProvider = ({children}) => {
     const [todoList, setTodoList] = useState(initialTodoList)
 
-    useEffect(async() => {
-        const response = await axios.get(`${ROOT_URL}/todo`)
-        localStorage.setItem("todoLists", response.data.receivedData)
-        setTodoList(response.data.receivedData)
-        }, [setTodoList])
+    const fetchTodoLists = async() => {
+        const response = await fetchAllTodoLists();
+        console.log(response)
+        localStorage.setItem("todoLists", JSON.stringify(response))
+        setTodoList(response)
+    }
+
+    useEffect(() => {
+        fetchTodoLists();
+    }, [setTodoList])
 
     return(<>
         <TodoContext.Provider value={{ todoList, setTodoList }}>
@@ -22,6 +26,6 @@ export const TodoProvider = ({children}) => {
     </>)
 }
 
-export const useTodo = () => {
+export const useTodo = () => {  
     return useContext(TodoContext)
 }

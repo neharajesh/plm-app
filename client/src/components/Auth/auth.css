@@ -1,3 +1,5 @@
+@import url("../../styles.css");
+
 .authContainer {
     display: flex;
     flex-direction: column;
@@ -15,16 +17,22 @@
 .authInput {
     width: 20rem;
     border: none;
-    border-bottom: 1px solid rgb(65, 64, 64);
+    border-bottom: 1px solid var(--plm-grey);
     background-color: transparent;
 }
 
 .authInput:focus {
-    border-bottom: 2px solid rgb(228, 135, 135);
+    border-bottom: 2px solid var(--plm-pink);
 }
 
 .submitButton {
     width: 10rem;
     margin-top: 1rem;
     padding: 0.5rem;
+}
+
+.registerLink {
+    justify-content: flex-start;
+    text-decoration: none;
+    color: inherit;
 }

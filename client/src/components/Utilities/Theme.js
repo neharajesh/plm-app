@@ -8,6 +8,6 @@ export const Theme = () => {
     }
 
     return (<>
-        <button onClick={() => changeTheme()} className="fixedThemeButton"> Change Theme </button>
+        <button onClick={() => changeTheme()} className="fixedThemeButton"> {theme === "dark" ? "🌞" : "🌙"} </button>
     </>)
 }

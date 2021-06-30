@@ -21,7 +21,7 @@ export const Login = () => {
     
     return(<>
         <div className="pageContainer">
-            <h1>Login Page</h1>
+            <h1> Login </h1>
             <div className="authContainer pd-1 mg-tb-2">
                 <div className="inputContainer"> 
                     <span> Username </span> 
@@ -33,7 +33,7 @@ export const Login = () => {
                 </div>
                 <button className="submitButton" onClick={submitButtonHandler}> Submit </button>
             </div>
-            <Link className="navLink" to="/signup"> <span> Click here to Register </span> </Link>
+            <Link className="registerLink" to="/signup"> <span> Click here to Register </span> </Link>
             <div id="notification-container"></div>
         </div>
     </>)
