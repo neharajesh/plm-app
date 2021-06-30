@@ -4,8 +4,7 @@
   "description": "Personal Learning Management Application",
   "main": "index.js",
   "scripts": {
-      "server-install": "cd server && npm install",
-    "start": "npm run server-install && node server/server.js",
+    "start": "node server/server.js",
     "server": "nodemon server/server.js",
     "client": "npm start --prefix client",
     "build": "npm run client",
