@@ -4,9 +4,12 @@
   "description": "Personal Learning Management Application",
   "main": "index.js",
   "scripts": {
-    "start": "node server/server.js",
+      "server-install": "cd server && npm install",
+    "start": "npm run server-install && node server/server.js",
     "server": "nodemon server/server.js",
-    "client": "npm start --prefix client"
+    "client": "npm start --prefix client",
+    "build": "npm run client",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
   },
   "repository": {
     "type": "git",
@@ -17,5 +20,8 @@
   "bugs": {
     "url": "https://github.com/neharajesh/plm-app/issues"
   },
-  "homepage": "https://github.com/neharajesh/plm-app#readme"
+  "homepage": "https://github.com/neharajesh/plm-app#readme",
+  "dependencies": {
+    "concurrently": "^6.2.0"
+  }
 }
