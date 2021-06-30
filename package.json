@@ -30,6 +30,7 @@
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.12.11",
     "nodemon": "^2.0.8",
-    "node": "^12.0.0"
+    "node": "^12.x",
+    "npm" : "^6.x"
   }
 }
