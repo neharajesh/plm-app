@@ -3,7 +3,7 @@ const express = require("express")
 const bodyParser = require("body-parser")
 const cors = require("cors")
 
-const { initializeDbConnection } = require("./db/db-setup")
+const { initializeDbConnection } = require("./config/db-setup")
 initializeDbConnection();
 
 const app = express();
@@ -16,6 +16,7 @@ const userRouter = require("./routers/user-router")
 const { verifyToken } = require("./middlewares/verify-signin")
 
 const todoRouter = require("./routers/todo-router")
+const articleRouter = require("./routers/article-router")
 
 app.all('/*', function(req, res, next) {
     res.header("Access-Control-Allow-Origin", 'POST, OPTIONS',  "*");
@@ -26,6 +27,7 @@ app.all('/*', function(req, res, next) {
 app.use("/auth", authRouter)
 app.use("/user", userRouter)
 app.use("/todo", todoRouter)
+app.use("/article", articleRouter)
 
 app.get("/protectedRoute", verifyToken, (req, res) => {
     try {

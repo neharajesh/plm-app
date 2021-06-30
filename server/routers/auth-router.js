@@ -42,7 +42,8 @@ router.route("/signin")
         //generate a token
         const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, { expiresIn: 86400 })
         req.user = user
-        res.json({success: true, message: "User signed in successfully", user: {username: user.username, password: bcrypt.hashSync(user.password, 8)}, authToken: token})
+        // console.log(user)
+        res.json({success: true, message: "User signed in successfully", user: existingUser})
     } catch (err) {
         console.log("Error occurred whie signing user in")
         res.json({success: false, message: "Error occurred while signing in", errMessage: err.message})
