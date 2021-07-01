@@ -6,8 +6,8 @@
   "scripts": {
     "start": "cd server && node server.js",
     "server": "nodemon server/server.js",
-    "client": "npm start --prefix client",
-    "build": "npm run client",
+    "client": "react-scripts start --prefix client",
+    "build": "react-scripts build --prefix client",
     "dev": "concurrently \"npm run server\" \"npm run client\""
   },
   "repository": {
